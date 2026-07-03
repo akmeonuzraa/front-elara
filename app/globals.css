@@ -1,0 +1,127 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 210 20% 98%;
+    --foreground: 210 20% 10%;
+    --card: 0 0% 100%;
+    --card-foreground: 210 20% 10%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 210 20% 10%;
+    --primary: 210 70% 30%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 210 40% 96%;
+    --secondary-foreground: 210 70% 30%;
+    --muted: 210 20% 96%;
+    --muted-foreground: 210 15% 45%;
+    --accent: 200 70% 45%;
+    --accent-foreground: 0 0% 100%;
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 210 20% 90%;
+    --input: 210 20% 90%;
+    --ring: 210 70% 30%;
+    --success: 160 70% 35%;
+    --success-foreground: 0 0% 100%;
+    --warning: 45 100% 50%;
+    --warning-foreground: 210 20% 10%;
+    --radius: 0.75rem;
+
+    /* elaraMed custom palette */
+    --elara-primary: #1F4E79;
+    --elara-secondary: #2E75B6;
+    --elara-accent: #5BA0D0;
+    --elara-light: #E8F4FC;
+    --elara-dark: #0D2E4D;
+  }
+
+  .dark {
+    --background: 210 20% 8%;
+    --foreground: 210 10% 95%;
+    --card: 210 20% 12%;
+    --card-foreground: 210 10% 95%;
+    --popover: 210 20% 12%;
+    --popover-foreground: 210 10% 95%;
+    --primary: 200 70% 50%;
+    --primary-foreground: 210 20% 8%;
+    --secondary: 210 30% 20%;
+    --secondary-foreground: 210 10% 95%;
+    --muted: 210 20% 15%;
+    --muted-foreground: 210 10% 65%;
+    --accent: 200 60% 40%;
+    --accent-foreground: 210 10% 95%;
+    --destructive: 0 70% 50%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 210 20% 20%;
+    --input: 210 20% 20%;
+    --ring: 200 70% 50%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-semibold tracking-tight;
+  }
+}
+
+@layer utilities {
+  .text-gradient {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-[#1F4E79] to-[#2E75B6];
+  }
+
+  .medical-gradient {
+    background: linear-gradient(135deg, #1F4E79 0%, #2E75B6 50%, #5BA0D0 100%);
+  }
+
+  .glass-effect {
+    @apply bg-white/80 backdrop-blur-md border border-white/20;
+  }
+
+  .card-hover {
+    @apply transition-all duration-300 hover:shadow-lg hover:-translate-y-1;
+  }
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-muted rounded-full;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-primary/30 rounded-full hover:bg-primary/50;
+}
+
+/* Animation keyframes */
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+@keyframes pulse-glow {
+  0%, 100% { box-shadow: 0 0 20px rgba(31, 78, 121, 0.3); }
+  50% { box-shadow: 0 0 40px rgba(31, 78, 121, 0.5); }
+}
+
+.animate-float {
+  animation: float 3s ease-in-out infinite;
+}
+
+.animate-pulse-glow {
+  animation: pulse-glow 2s ease-in-out infinite;
+}
